@@ -1,0 +1,22 @@
+name: 'tekartik_app_utils'
+version: 0.0.1
+description: App utilities
+#author: Alexandre Roux Tekartik <email@example.com>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  tekartik_browser_utils:
+    git: git://github.com/tekartik/tekartik_browser_utils.dart
+
+dev_dependencies:
+  browser: '>=0.10.0'
+  test: any
+  dev_test: any
+  dart_to_js_script_rewriter: '>=1.0.1'
+  chrome_travis:
+     git: git://github.com/tekartik/chrome_travis.dart
+transformers:
+- dart_to_js_script_rewriter
