@@ -33,10 +33,12 @@ class AppHostTarget extends StringEnum {
   static List<AppHostTarget> all = [local, dev, staging, prod];
 
   static AppHostTarget fromTargetName(String targetName) {
-    AppHostTarget tmpTarget = new AppHostTarget(targetName);
-    for (AppHostTarget target in all) {
-      if (tmpTarget == target) {
-        return target;
+    if (targetName != null) {
+      AppHostTarget tmpTarget = new AppHostTarget(targetName);
+      for (AppHostTarget target in all) {
+        if (tmpTarget == target) {
+          return target;
+        }
       }
     }
     return null;
@@ -44,53 +46,64 @@ class AppHostTarget extends StringEnum {
 
   // will never return prod
   static AppHostTarget fromHost(String host) {
-    if (_isLocalhost(host)) {
-      return local;
-    }
+    if (host != null) {
+      if (_isLocalhost(host)) {
+        return local;
+      }
 
-    if (_isHostDev(host)) {
-      return dev;
-    }
+      if (_isHostDev(host)) {
+        return dev;
+      }
 
-    if (_isHostStaging(host)) {
-      return staging;
+      if (_isHostStaging(host)) {
+        return staging;
+      }
     }
     return null;
   }
 
   // will never return prod nor local
   static AppHostTarget fromPath(String path) {
-    if (_isPathStaging(path)) {
-      return staging;
-    }
+    if (path != null) {
+      if (_isPathStaging(path)) {
+        return staging;
+      }
 
-    if (_isPathDev(path)) {
-      return dev;
+      if (_isPathDev(path)) {
+        return dev;
+      }
     }
 
     return null;
   }
 
   static AppHostTarget fromArguments(Map<String, String> arguments) {
-    for (AppHostTarget target in all) {
-      if (arguments.containsKey(target.name)) {
-        return target;
+    if (arguments != null && arguments.isNotEmpty) {
+      for (AppHostTarget target in all) {
+        if (arguments.containsKey(target.name)) {
+          return target;
+        }
       }
     }
     return null;
   }
 
   static AppHostTarget fromLocationInfo(LocationInfo locationInfo) {
-    AppHostTarget target = fromArguments(locationInfo.arguments);
-    target ??= fromHost(locationInfo.host);
-    target ??= fromPath(locationInfo.path);
-    return target;
+    if (locationInfo != null) {
+      AppHostTarget target = fromArguments(locationInfo.arguments);
+      target ??= fromHost(locationInfo.host);
+      target ??= fromPath(locationInfo.path);
+      return target;
+    }
+    return null;
   }
 }
 
 abstract class LocationInfo {
   String get host;
+
   String get path;
+
   Map<String, String> get arguments;
 }
 
