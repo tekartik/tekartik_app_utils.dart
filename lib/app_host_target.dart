@@ -88,11 +88,17 @@ class AppHostTarget extends StringEnum {
     return null;
   }
 
+  // Allow to check with arguments first
+  static AppHostTarget fromHostAndPath(String host, String path) {
+    AppHostTarget target = fromHost(host);
+    target ??= fromPath(path);
+    return target;
+  }
+
   static AppHostTarget fromLocationInfo(LocationInfo locationInfo) {
     if (locationInfo != null) {
       AppHostTarget target = fromArguments(locationInfo.arguments);
-      target ??= fromHost(locationInfo.host);
-      target ??= fromPath(locationInfo.path);
+      target ??= fromHostAndPath(locationInfo.host, locationInfo.path);
       return target;
     }
     return null;
