@@ -8,6 +8,8 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 
 dependencies:
+  platform_context:
+    git: git://github.com/tekartik/platform_context.dart
   tekartik_browser_utils:
     git: git://github.com/tekartik/tekartik_browser_utils.dart
   tekartik_bootstrap:
