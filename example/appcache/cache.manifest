@@ -1,7 +1,8 @@
 CACHE MANIFEST
-# v1
+# v2
 
 CACHE:
-index.html
-index-nocache.html
+./index.html
+./index-nocache.html
+./packages/tekartik_app_utils/appcache/appcache_debug.js
 
