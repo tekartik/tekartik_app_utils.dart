@@ -1,0 +1,7 @@
+files:
+  - cache.manifest
+  - deploy.yaml
+  - index.html
+  - index-nocache.html
+  - index-not-in-cache.html
+  - packages/tekartik_app_utils/appcache/appcache_debug.js
