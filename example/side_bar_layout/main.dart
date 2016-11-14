@@ -5,7 +5,7 @@ import 'package:tekartik_app_utils/side_bar_layout/side_bar_layout.dart';
 import 'dart:html';
 
 main() async {
-  devPrint('hi');
+  //devPrint('hi');
   await loadBootstrap();
   await loadSideBarCss();
   SideBarLayout sideBarLayout = new SideBarLayout();
