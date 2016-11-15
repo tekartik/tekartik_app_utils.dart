@@ -12,8 +12,9 @@ dependencies:
     git: git://github.com/tekartik/platform_context.dart
   tekartik_browser_utils:
     git: git://github.com/tekartik/tekartik_browser_utils.dart
-  tekartik_bootstrap:
-    git: git://github.com/tekartik/tekartik_bootstrap.dart
+  tekartik_build_utils:
+    git: git://github.com/tekartik/build_utils.dart
+    version: '>=0.0.2'
   dart_to_js_script_rewriter: '>=1.0.1'
   quiver: any
 
@@ -23,6 +24,9 @@ dev_dependencies:
   test: any
   dev_test: any
   chrome_travis:
-     git: git://github.com/tekartik/chrome_travis.dart
+    git: git://github.com/tekartik/chrome_travis.dart
+  tekartik_bootstrap:
+    git: git://github.com/tekartik/tekartik_bootstrap.dart
+
 transformers:
 - dart_to_js_script_rewriter
