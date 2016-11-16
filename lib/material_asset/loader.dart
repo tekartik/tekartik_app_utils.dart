@@ -5,4 +5,3 @@ Future loadMaterialIconCss() async {
   await loadStylesheet(
       "packages/tekartik_material_asset/font/material-icons/material-icons.css");
 }
-

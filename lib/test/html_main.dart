@@ -1,6 +1,7 @@
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 import 'dart:html';
 import 'package:quiver/strings.dart';
+
 App app;
 main() {
   app = new App();
@@ -19,20 +20,20 @@ class App {
       String href = anchorElement.href;
       String title = anchorElement.text;
       if (isEmpty(title)) {
-          title = href;
-      };
+        title = href;
+      }
+      ;
 
-      LIElement li= new LIElement();
+      LIElement li = new LIElement();
 
-
-      AnchorElement newAnchor = new AnchorElement()..href = href..text = title;
+      AnchorElement newAnchor = new AnchorElement()
+        ..href = href
+        ..text = title;
       li.append(newAnchor);
       ul.append(li);
 
       // remove ourself
       anchorElement.remove();
-
-
     });
     holder.append(ul);
     document.body.append(holder);

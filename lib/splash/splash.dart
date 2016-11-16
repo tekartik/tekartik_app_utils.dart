@@ -6,8 +6,7 @@ class Splash {
   Stopwatch sw;
 
   Splash() {
-    sw = new Stopwatch()
-      ..start();
+    sw = new Stopwatch()..start();
 
     var loadEl = document.getElementById('splash');
     if (loadEl != null) {

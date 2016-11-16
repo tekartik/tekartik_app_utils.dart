@@ -24,6 +24,4 @@ main() async {
     sideBarLayout.reset();
     //querySelector("#wrapper").classes.add("show");
   });
-
-
 }

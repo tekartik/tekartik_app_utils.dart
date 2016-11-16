@@ -15,6 +15,7 @@ class SideBarLayout {
     _element.classes.remove("toggled");
     _element.classes.add("show"); //toggleClass("toggled");
   }
+
   void reset() {
     //$("#menu-toggle").click(function(e) {
     //e.preventDefault();
