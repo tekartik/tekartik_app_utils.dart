@@ -30,3 +30,7 @@ dev_dependencies:
 
 transformers:
 - dart_to_js_script_rewriter
+
+dependency_overrides:
+#  tekartik_build_utils:
+#     path: ../tekartik_build_utils.dart

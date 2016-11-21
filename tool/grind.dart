@@ -21,3 +21,8 @@ example_browser() {
   //app.gsPath = "gs://gs.tk4k.ovh/tekartik_app_utils/example/browser";
   //app.path = join("example", "browser");
 }
+
+@Task()
+example_meta_apple() {
+  app.path = join('example', 'meta', 'apple');
+}
