@@ -1,12 +1,11 @@
 import 'app_firebase.dart';
 import 'package:firebase3/firebase.dart' as firebase;
 
-@deprecated
-firebase.App initializeApp(FirebaseOptions options) {
+firebase.App initializeApp(FirebaseOptions options, [String name]) {
   return firebase.initializeApp(
       apiKey: options.apiKey,
       authDomain: options.authDomain,
       databaseURL: options.databaseURL,
       storageBucket: options.storageBucket,
-      name: options.name);
+      name: name);
 }

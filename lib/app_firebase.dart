@@ -1,3 +1,5 @@
+// use lib/firebase
+@deprecated
 class FirebaseOptions {
   String apiKey;
   String authDomain;
