@@ -34,9 +34,24 @@ void main() {
           });
     });
 
+    test("packItemList", () {
+      expect(
+          packItemList(["1", "3"], (String item) {
+            return {"item": item};
+          }),
+          {
+            'columns': ['item'],
+            'rows': [
+              ['1'],
+              ['3']
+            ]
+          });
+    });
+
     test('unpack', () {
       expect(unpackList(null), isNull);
       expect(unpackList({}), isNull);
+
       expect(unpackList({'columns': [], 'rows': []}), []);
       expect(
           unpackList({
@@ -48,18 +63,27 @@ void main() {
           [
             {"field1": "text1", "field2": 123456}
           ]);
-      expect(
-          unpackList({
-            'columns': ['field1', 'field2', 'field3', 'field4'],
-            'rows': [
-              ['text1', 123456, null, null],
-              [null, 789, 'text3', null]
-            ]
-          }),
-          [
-            {"field1": "text1", "field2": 123456},
-            {"field3": "text3", "field2": 789}
-          ]);
+
+      Map packed1 = {
+        'columns': ['field1', 'field2', 'field3', 'field4'],
+        'rows': [
+          ['text1', 123456, null, null],
+          [null, 789, 'text3', null]
+        ]
+      };
+      JsonUnpack unpack = new JsonUnpack(packed1);
+      int count = 0;
+      unpack.forEach((Map map) {
+        if (count == 0) {
+          expect(map['field1'], "text1");
+        }
+        count++;
+      });
+      expect(count, 2);
+      expect(unpackList(packed1), [
+        {"field1": "text1", "field2": 123456},
+        {"field3": "text3", "field2": 789}
+      ]);
     });
   });
 }
