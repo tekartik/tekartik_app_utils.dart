@@ -1,8 +1,6 @@
-import 'package:pub_semver/pub_semver.dart';
-import 'package:tekartik_common_utils/common_utils_import.dart';
 import 'package:tekartik_common_utils/string_enum.dart';
 
-Version appVersion = new Version(0, 1, 0);
+//Version appVersion = new Version(0, 1, 0);
 
 bool _isLocalhost(String host) {
   return host.contains('localhost');
