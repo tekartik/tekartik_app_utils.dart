@@ -1,12 +1,2 @@
-import 'app_firebase.dart';
-import 'package:firebase3/firebase.dart' as firebase;
-
-@deprecated
-firebase.App initializeApp(FirebaseOptions options) {
-  return firebase.initializeApp(
-      apiKey: options.apiKey,
-      authDomain: options.authDomain,
-      databaseURL: options.databaseURL,
-      storageBucket: options.storageBucket,
-      name: options.name);
-}
+library tekartik_app_utils_old_app_firebase;
+export 'firebase/app_firebase_browser.dart';

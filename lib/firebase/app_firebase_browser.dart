@@ -1,5 +1,5 @@
 import 'app_firebase.dart';
-import 'package:firebase3/firebase.dart' as firebase;
+import 'package:firebase/firebase.dart' as firebase;
 
 firebase.App initializeApp(FirebaseOptions options, [String name]) {
   return firebase.initializeApp(

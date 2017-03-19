@@ -1,16 +1,2 @@
-// use lib/firebase
-@deprecated
-class FirebaseOptions {
-  String apiKey;
-  String authDomain;
-  String databaseURL;
-  String storageBucket;
-  String name;
-
-  FirebaseOptions(
-      {this.apiKey,
-      this.authDomain,
-      this.databaseURL,
-      this.storageBucket,
-      this.name});
-}
+library tekartik_app_utils_old_app_firebase;
+export 'firebase/app_firebase.dart';
