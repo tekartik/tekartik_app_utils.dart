@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+- add csv_utils
+
 ## 0.0.5
 
 - add json_pack
