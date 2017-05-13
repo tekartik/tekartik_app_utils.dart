@@ -17,6 +17,7 @@ dependencies:
     version: '>=0.0.2'
   dart_to_js_script_rewriter: '>=1.0.1'
   quiver: any
+  mdc: any
 
 dev_dependencies:
   firebase: any

@@ -1,0 +1,90 @@
+body.tka-loading #tka_splash {
+  opacity: 1;
+}
+
+#tka_splash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 300ms cubic-bezier(0,0,0.2,1);
+  opacity: 0;
+  will-change: opacity;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 320px 320px;
+  background-color: white;
+}
+
+#tka_splash a {
+  position: absolute;
+  color: #bbb;
+  font-size: small;
+  text-decoration: none;
+  bottom: 5px;
+  right: 5px;
+}
+@media screen and (max-width: 320px) {
+  #tka_splash {
+    background-size: contain;
+  }
+}
+
+// Here is where the magic happens
+
+$offset: 187;
+$duration: 1.4s;
+
+.tka-spinner-svg {
+  animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.tka-spinner-svg-path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+          tka_spinner_svg_dash $duration ease-in-out infinite,
+          tka_spinner_svg_colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes tka_spinner_svg_colors {
+  0% { stroke: #4285F4; }
+  25% { stroke: #DE3E35; }
+  50% { stroke: #F7C223; }
+  75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+}
+
+@keyframes tka_spinner_svg_dash {
+  0% { stroke-dashoffset: $offset; }
+  50% {
+    stroke-dashoffset: $offset/4;
+    transform:rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform:rotate(450deg);
+  }
+}
+
+.tka-spinner-svg-wrapper {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 65px;
+  height: 65px;
+
+  margin: auto;
+}
