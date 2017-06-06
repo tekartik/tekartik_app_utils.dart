@@ -1,5 +1,5 @@
 name: 'tekartik_app_utils'
-version: 0.0.8
+version: 0.1.0
 description: App utilities
 #author: Alexandre Roux Tekartik <email@example.com>
 #homepage: https://www.example.com
@@ -12,6 +12,7 @@ dependencies:
     git: git://github.com/tekartik/platform_context.dart
   tekartik_browser_utils:
     git: git://github.com/tekartik/tekartik_browser_utils.dart
+    version: '>=0.2.1'
   tekartik_build_utils:
     git: git://github.com/tekartik/build_utils.dart
     version: '>=0.0.2'
@@ -32,7 +33,7 @@ dev_dependencies:
 transformers:
 - dart_to_js_script_rewriter
 
-dependency_overrides:
+_dependency_overrides:
 #  tekartik_build_utils:
 #     path: ../tekartik_build_utils.dart
   tekartik_material_asset:

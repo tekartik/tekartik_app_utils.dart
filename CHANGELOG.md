@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0
+
+- add firebase loader helper
+
 ## 0.0.8
 
 - add csv_utils
