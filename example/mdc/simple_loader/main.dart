@@ -3,16 +3,15 @@ import 'dart:html';
 import 'package:mdc/mdc.dart' as mdc;
 import 'package:tekartik_app_utils/mdc/loader.dart';
 import 'package:tekartik_app_utils/splash/splash.dart';
-import 'package:tekartik_build_utils/common_import.dart';
 
 main() async {
-  devPrint('main');
+  //devPrint('main');
   splash.init(minDisplayDuration: 2000);
   await loadMdcCssJs();
-  devPrint('loaded');
+  //devPrint('loaded');
   mdc.autoInit();
   await splash.hide();
-  devPrint('done');
+  //devPrint('done');
 
   FormElement form = querySelector('#greeting-form');
 
