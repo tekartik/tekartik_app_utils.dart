@@ -4,7 +4,6 @@
 import 'package:tekartik_app_utils/splash/splash.dart';
 
 main() async {
-
   //await sleep(1500);
 
   splash.init();

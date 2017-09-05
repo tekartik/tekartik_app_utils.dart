@@ -7,5 +7,10 @@ class FirebaseOptions {
   String messagingSenderId;
 
   FirebaseOptions(
-      {this.apiKey, this.authDomain, this.databaseURL, this.projectId, this.storageBucket, this.messagingSenderId});
+      {this.apiKey,
+      this.authDomain,
+      this.databaseURL,
+      this.projectId,
+      this.storageBucket,
+      this.messagingSenderId});
 }

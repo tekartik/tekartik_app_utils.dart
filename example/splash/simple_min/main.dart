@@ -4,7 +4,6 @@
 import 'package:tekartik_app_utils/splash/splash.dart';
 
 main() async {
-
   splash.init(minDisplayDuration: 1000);
   await splash.hide();
 }
