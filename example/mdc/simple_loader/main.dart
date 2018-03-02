@@ -13,7 +13,7 @@ main() async {
   await splash.hide();
   //devPrint('done');
 
-  FormElement form = querySelector('#greeting-form');
+  FormElement form = querySelector('#greeting-form') as FormElement;
 
   form.onSubmit.listen(onSubmit);
 }
@@ -38,11 +38,11 @@ void onSubmit(Event event) {
   }
   greeting += '!';
 
-  ParagraphElement p = querySelector('#greeting');
+  ParagraphElement p = querySelector('#greeting') as ParagraphElement;
   p.text = greeting;
 }
 
 String getInputValue(String selector) {
-  InputElement input = querySelector(selector);
+  var input = querySelector(selector) as InputElement;
   return input.value;
 }

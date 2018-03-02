@@ -36,7 +36,7 @@ void main() {
 
     test("packItemList", () {
       expect(
-          packItemList(["1", "3"], (String item) {
+          packItemList(<String>["1", "3"], (String item) {
             return {"item": item};
           }),
           {
@@ -64,7 +64,7 @@ void main() {
             {"field1": "text1", "field2": 123456}
           ]);
 
-      Map packed1 = {
+      var packed1 = {
         'columns': ['field1', 'field2', 'field3', 'field4'],
         'rows': [
           ['text1', 123456, null, null],

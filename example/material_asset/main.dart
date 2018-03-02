@@ -6,7 +6,7 @@ import 'package:tekartik_app_utils/material_asset/loader.dart';
 PreElement output;
 
 void message(String msg) {
-  output ??= querySelector('#output');
+  output ??= querySelector('#output') as PreElement;
   output.text += "msg\n";
 }
 

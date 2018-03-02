@@ -36,9 +36,9 @@ Map<String, List> packList(List<Map<String, dynamic>> list) {
   return packed;
 }
 
-Map<String, dynamic> packItemList(
-    List list, Func1<dynamic, Map<String, dynamic>> itemToJsonCallback) {
-  List unpackedList = [];
+Map<String, dynamic> packItemList<T>(
+    List<T> list, Func1<T, Map<String, dynamic>> itemToJsonCallback) {
+  var unpackedList = <Map<String, dynamic>>[];
   for (var item in list) {
     unpackedList.add(itemToJsonCallback(item));
   }

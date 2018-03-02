@@ -5,7 +5,7 @@ import 'package:mdc/mdc.dart' as mdc;
 void main() {
   mdc.autoInit();
 
-  FormElement form = querySelector('#greeting-form');
+  FormElement form = querySelector('#greeting-form') as FormElement;
 
   form.onSubmit.listen(onSubmit);
 }
@@ -30,11 +30,11 @@ void onSubmit(Event event) {
   }
   greeting += '!';
 
-  ParagraphElement p = querySelector('#greeting');
+  ParagraphElement p = querySelector('#greeting') as ParagraphElement;
   p.text = greeting;
 }
 
 String getInputValue(String selector) {
-  InputElement input = querySelector(selector);
+  InputElement input = querySelector(selector) as InputElement;
   return input.value;
 }
