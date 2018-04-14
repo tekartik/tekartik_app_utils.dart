@@ -22,7 +22,7 @@ Element spinnerElement() {
 }
 
 class Splash {
-  int _minDisplayDuration = 500;
+  int _minDisplayDuration = 100;
   int _minTransitionDuration = 350;
 
   Element _splashElement;

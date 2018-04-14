@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.0
+
+- Add basscss
 ## 0.2.0
 
 - support `implicit-casts: false`
