@@ -79,13 +79,13 @@ class JsonUnpack {
 /// Convert to
 /// { "columns": ["column1", "column2"],
 /// "rows": [["row1_col1", "row1_col2"],["row2_col1", "row2_col2"]]
-List<Map<String, Object>> unpackList(Map<String, dynamic> packed) {
+List<Map<String, dynamic>> unpackList(Map<String, dynamic> packed) {
   if (packed == null) {
     return null;
   }
 
-  List<String> columns = packed[_columns] as List<String>;
-  List<List> rows = packed[_rows] as List<List>;
+  List<String> columns = (packed[_columns] as List)?.cast<String>();
+  List<List> rows = (packed[_rows] as List)?.cast<List>();
   if (columns == null || rows == null) {
     return null;
   }
@@ -94,7 +94,7 @@ List<Map<String, Object>> unpackList(Map<String, dynamic> packed) {
 
   List<Map<String, Object>> items = [];
   for (List row in rows) {
-    Map<String, Object> item = {};
+    Map<String, dynamic> item = {};
     for (int i = 0; i < columnCount; i++) {
       var value = row[i];
       if (value != null) {
