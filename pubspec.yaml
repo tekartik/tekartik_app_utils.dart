@@ -5,16 +5,23 @@ description: App utilities
 #homepage: https://www.example.com
 
 environment:
-  sdk: '>=1.0.0 <2.0.0'
+  sdk: '>=2.0.0-dev.63 <2.0.0'
 
 dependencies:
-  platform_context:
-    git: git://github.com/tekartik/platform_context.dart
+  tekartik_platform_browser:
+    git:
+      url: git://github.com/tekartik/platform.dart
+      path: platform_browser
+      ref: dart2
   tekartik_browser_utils:
-    git: git://github.com/tekartik/browser_utils.dart
+    git:
+      url: git://github.com/tekartik/browser_utils.dart
+      ref: dart2
     version: '>=0.2.1'
   tekartik_build_utils:
-    git: git://github.com/tekartik/build_utils.dart
+    git:
+      url: git://github.com/tekartik/build_utils.dart
+      ref: dart2
     version: '>=0.1.0'
   dart_to_js_script_rewriter: '>=1.0.1'
   quiver: any
@@ -26,18 +33,14 @@ dev_dependencies:
   test: any
   dev_test: any
   chrome_travis:
-    git: git://github.com/tekartik/chrome_travis.dart
+    git:
+      url: git://github.com/tekartik/chrome_travis.dart
+      ref: dart2
   tekartik_bootstrap:
-    git: git://github.com/tekartik/bootstrap.dart
+    git:
+      url: git://github.com/tekartik/bootstrap.dart
+      ref: dart2
   tekartik_material_asset:
-    git: git://github.com/tekartik/material_asset.dart
-
-transformers:
-- dart_to_js_script_rewriter
-
-_dependency_overrides:
-#  tekartik_build_utils:
-#     path: ../tekartik_build_utils.dart
-  tekartik_material_asset:
-#    path: ../material_asset.dart
-    git: git://github.com/tekartik/material_asset.dart
+    git:
+      url: git://github.com/tekartik/material_asset.dart
+      ref: dart2

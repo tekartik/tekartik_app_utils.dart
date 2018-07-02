@@ -3,8 +3,8 @@ import 'dart:async';
 
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
-var _mdcJsLocker = new SynchronizedLock();
-var _mdcCssLocker = new SynchronizedLock();
+var _mdcJsLocker = new Lock();
+var _mdcCssLocker = new Lock();
 var _mscJsLoaded = false;
 var _mscCssLoaded = false;
 
