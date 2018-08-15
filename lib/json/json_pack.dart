@@ -1,4 +1,3 @@
-import 'package:func/func.dart';
 
 const String _columns = "columns";
 const String _rows = "rows";
@@ -37,7 +36,7 @@ Map<String, List> packList(List<Map<String, dynamic>> list) {
 }
 
 Map<String, dynamic> packItemList<T>(
-    List<T> list, Func1<T, Map<String, dynamic>> itemToJsonCallback) {
+    List<T> list, Map<String, dynamic> Function(T item) itemToJsonCallback) {
   var unpackedList = <Map<String, dynamic>>[];
   for (var item in list) {
     unpackedList.add(itemToJsonCallback(item));

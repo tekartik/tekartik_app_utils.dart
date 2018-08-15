@@ -1,11 +1,11 @@
 name: 'tekartik_app_utils'
-version: 0.3.0
+version: 0.4.0
 description: App utilities
 #author: Alexandre Roux Tekartik <email@example.com>
 #homepage: https://www.example.com
 
 environment:
-  sdk: '>=2.0.0-dev.63 <2.0.0'
+  sdk: '>=2.0.0-dev.63 <3.0.0'
 
 dependencies:
   tekartik_platform_browser:
@@ -22,14 +22,11 @@ dependencies:
     git:
       url: git://github.com/tekartik/build_utils.dart
       ref: dart2
-    version: '>=0.1.0'
-  dart_to_js_script_rewriter: '>=1.0.1'
+    version: '>=0.4.1'
   quiver: any
-  mdc: any
 
 dev_dependencies:
   firebase: any
-  browser: '>=0.10.0'
   test: any
   dev_test: any
   chrome_travis:
@@ -40,6 +37,7 @@ dev_dependencies:
     git:
       url: git://github.com/tekartik/bootstrap.dart
       ref: dart2
+    version: '>=0.3.0'
   tekartik_material_asset:
     git:
       url: git://github.com/tekartik/material_asset.dart
