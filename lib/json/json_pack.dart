@@ -1,4 +1,3 @@
-import 'package:func/func.dart';
 
 const String _columns = "columns";
 const String _rows = "rows";
@@ -37,7 +36,7 @@ Map<String, List> packList(List<Map<String, dynamic>> list) {
 }
 
 Map<String, dynamic> packItemList<T>(
-    List<T> list, Func1<T, Map<String, dynamic>> itemToJsonCallback) {
+    List<T> list, Map<String, dynamic> Function(T item) itemToJsonCallback) {
   var unpackedList = <Map<String, dynamic>>[];
   for (var item in list) {
     unpackedList.add(itemToJsonCallback(item));
@@ -79,13 +78,13 @@ class JsonUnpack {
 /// Convert to
 /// { "columns": ["column1", "column2"],
 /// "rows": [["row1_col1", "row1_col2"],["row2_col1", "row2_col2"]]
-List<Map<String, Object>> unpackList(Map<String, dynamic> packed) {
+List<Map<String, dynamic>> unpackList(Map<String, dynamic> packed) {
   if (packed == null) {
     return null;
   }
 
-  List<String> columns = packed[_columns] as List<String>;
-  List<List> rows = packed[_rows] as List<List>;
+  List<String> columns = (packed[_columns] as List)?.cast<String>();
+  List<List> rows = (packed[_rows] as List)?.cast<List>();
   if (columns == null || rows == null) {
     return null;
   }
@@ -94,7 +93,7 @@ List<Map<String, Object>> unpackList(Map<String, dynamic> packed) {
 
   List<Map<String, Object>> items = [];
   for (List row in rows) {
-    Map<String, Object> item = {};
+    Map<String, dynamic> item = {};
     for (int i = 0; i < columnCount; i++) {
       var value = row[i];
       if (value != null) {
