@@ -36,7 +36,7 @@ String urlChangeQueryParameters(
 }
 
 Uri uriChangeQueryParameters(Uri uri, Map<String, String> newQueryParams) {
-  return new Uri(
+  return Uri(
       scheme: uri.scheme,
       userInfo: uri.userInfo,
       host: uri.host,
@@ -49,7 +49,7 @@ Uri uriChangeQueryParameters(Uri uri, Map<String, String> newQueryParams) {
 }
 
 Uri uriNoParamNoFragment(Uri uri) {
-  return new Uri(
+  return Uri(
       scheme: uri.scheme,
       userInfo: uri.userInfo, //
       host: uri.host,
@@ -66,7 +66,7 @@ String urlRoot(String url) {
 }
 
 Uri uriRoot(Uri uri) {
-  return new Uri(
+  return Uri(
       scheme: uri.scheme,
       userInfo: uri.userInfo, //
       host: uri.host,
@@ -80,9 +80,7 @@ String urlHashFix(String hash) {
   return hash;
 }
 
-/**
- * find the part hash or a url (without the #)
- */
+/// find the part hash or a url (without the #)
 String urlHash(String url) {
   int sharp = url.indexOf('#');
   if (sharp != -1) {

@@ -1,15 +1,15 @@
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
-Splash splash = new Splash();
+Splash splash = Splash();
 
 class _NullTreeSanitizer implements NodeTreeSanitizer {
   void sanitizeTree(node) {}
 }
 
-NodeTreeSanitizer nullTreeSanitizer = new _NullTreeSanitizer();
+NodeTreeSanitizer nullTreeSanitizer = _NullTreeSanitizer();
 
 Element spinnerElement() {
-  Element element = new Element.html('''
+  Element element = Element.html('''
   <div class="tka-spinner-svg-wrapper" width="65px" height="65px">
 <svg class="tka-spinner-svg" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
   <circle class="tka-spinner-svg-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
@@ -35,7 +35,7 @@ class Splash {
   Stopwatch sw;
 
   Splash() {
-    sw = new Stopwatch()..start();
+    sw = Stopwatch()..start();
     init();
   }
 

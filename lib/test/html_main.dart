@@ -4,7 +4,7 @@ import 'package:quiver/strings.dart';
 
 App app;
 main() {
-  app = new App();
+  app = App();
   app.main();
   //devPrint("Hi");
 }
@@ -12,8 +12,8 @@ main() {
 class App {
   Element holder;
   main() {
-    holder = new DivElement();
-    UListElement ul = new UListElement();
+    holder = DivElement();
+    UListElement ul = UListElement();
     //document.body.append(holder);
     document.body.querySelectorAll('a').forEach((Element element) {
       AnchorElement anchorElement = element as AnchorElement;
@@ -24,9 +24,9 @@ class App {
       }
       ;
 
-      LIElement li = new LIElement();
+      LIElement li = LIElement();
 
-      AnchorElement newAnchor = new AnchorElement()
+      AnchorElement newAnchor = AnchorElement()
         ..href = href
         ..text = title;
       li.append(newAnchor);

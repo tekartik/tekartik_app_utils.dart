@@ -71,7 +71,7 @@ void main() {
           [null, 789, 'text3', null]
         ]
       };
-      JsonUnpack unpack = new JsonUnpack(packed1);
+      JsonUnpack unpack = JsonUnpack(packed1);
       int count = 0;
       unpack.forEach((Map map) {
         if (count == 0) {

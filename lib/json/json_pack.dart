@@ -1,4 +1,3 @@
-
 const String _columns = "columns";
 const String _rows = "rows";
 
@@ -10,7 +9,7 @@ Map<String, List> packList(List<Map<String, dynamic>> list) {
   if (list == null) {
     return null;
   }
-  Set<String> columnSet = new Set(); //new HashSet<String>();
+  Set<String> columnSet = Set(); //new HashSet<String>();
   // Gather all the columns
   for (Map<String, Object> item in list) {
     columnSet.addAll(item.keys);

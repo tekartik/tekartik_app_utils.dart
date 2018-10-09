@@ -1,5 +1,5 @@
 name: 'tekartik_app_utils'
-version: 0.4.0
+version: 0.4.1
 description: App utilities
 #author: Alexandre Roux Tekartik <email@example.com>
 #homepage: https://www.example.com
@@ -26,7 +26,6 @@ dependencies:
   quiver: any
 
 dev_dependencies:
-  firebase: any
   test: any
   dev_test: any
   chrome_travis:

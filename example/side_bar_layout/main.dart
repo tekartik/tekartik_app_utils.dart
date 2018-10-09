@@ -8,7 +8,7 @@ main() async {
   //devPrint('hi');
   await loadBootstrap();
   await loadSideBarCss();
-  SideBarLayout sideBarLayout = new SideBarLayout();
+  SideBarLayout sideBarLayout = SideBarLayout();
   querySelector("#menu-toggle").onClick.listen((e) {
     e.preventDefault();
     //querySelector("#wrapper").classes.toggle("toggled");
