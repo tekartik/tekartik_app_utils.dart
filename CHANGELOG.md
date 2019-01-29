@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2
+
+- Add `recaptcha`
+
 ## 0.3.0
 
 - Add basscss
