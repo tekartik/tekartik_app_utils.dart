@@ -28,8 +28,7 @@ class GReCaptchaRenderParams {
 class GReCaptcha {
   Future get ready {
     var completer = Completer();
-    js.grecaptcha.ready(allowInterop((_) {
-      print('ready');
+    js.grecaptcha.ready(allowInterop(([_]) {
       completer.complete();
     }));
     return completer.future;
@@ -41,7 +40,7 @@ class GReCaptcha {
 
   void render(String id, GReCaptchaRenderParams params) {
     var jsCallback = (params.callback != null)
-        ? (allowInterop((token) {
+        ? (allowInterop(([token, param1, param2]) {
             params.callback(token?.toString());
           }))
         : null;
@@ -55,7 +54,7 @@ final grecaptcha = GReCaptcha();
 
 JavascriptScriptLoader _loader =
     JavascriptScriptLoader('https://www.google.com/recaptcha/api.js');
-Future loadJs() async {
+Future grecaptchaLoadJs() async {
   await _loader.load();
 }
 
@@ -67,12 +66,11 @@ Future<String> grecaptchaWait(
     {String siteKey,
     String containerId = _defaultContainerId,
     String widgetId = _defaultWidgetId}) async {
-  await loadJs();
+  // await loadJs();
   await grecaptcha.ready;
   var completer = Completer<String>();
   var element = grecaptcha.createElement(widgetId);
   querySelector('#${containerId}').children.add(element);
-
   grecaptcha.render(
       widgetId,
       GReCaptchaRenderParams(
