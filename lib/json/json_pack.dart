@@ -47,7 +47,7 @@ class JsonUnpack {
   Map packed;
   JsonUnpack(this.packed);
 
-  forEach(callback(Map item)) {
+  void forEach(callback(Map item)) {
     if (packed == null) {
       return null;
     }

@@ -6,7 +6,7 @@ void message(String msg) {
   output.text += "${msg}\n";
 }
 
-main() {
+void main() {
   message("hi, dart is running");
   message("What's next?");
 }

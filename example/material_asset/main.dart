@@ -10,7 +10,7 @@ void message(String msg) {
   output.text += "msg\n";
 }
 
-main() async {
+Future main() async {
   await Future.wait([
     () async {
       await loadRobotoSlabFontCss();

@@ -6,6 +6,6 @@ void message(String msg) {
   output.text += "msg\n";
 }
 
-main() {
+void main() {
   message("hi");
 }

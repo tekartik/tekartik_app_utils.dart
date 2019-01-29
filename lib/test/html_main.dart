@@ -1,9 +1,11 @@
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
 import 'dart:html';
+
 import 'package:quiver/strings.dart';
+import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
 App app;
-main() {
+
+void main() {
   app = App();
   app.main();
   //devPrint("Hi");
@@ -11,7 +13,8 @@ main() {
 
 class App {
   Element holder;
-  main() {
+
+  void main() {
     holder = DivElement();
     UListElement ul = UListElement();
     //document.body.append(holder);
@@ -22,7 +25,6 @@ class App {
       if (isEmpty(title)) {
         title = href;
       }
-      ;
 
       LIElement li = LIElement();
 

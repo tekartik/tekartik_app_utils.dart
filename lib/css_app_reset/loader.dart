@@ -1,5 +1,6 @@
-import 'package:tekartik_browser_utils/css_utils.dart';
 import 'dart:async';
+
+import 'package:tekartik_browser_utils/css_utils.dart';
 
 Future loadCssAppResetCss() async {
   await loadStylesheet(
