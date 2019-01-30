@@ -25,6 +25,23 @@ class GReCaptchaRenderParams {
   }
 }
 
+class GReCaptchaExecuteParams {
+  final String action;
+
+  GReCaptchaExecuteParams({this.action});
+
+  @override
+  String toString() {
+    return toMap().toString();
+  }
+
+  Map<String, dynamic> toMap() {
+    var map = <String, dynamic>{};
+    map['action'] = action;
+    return map;
+  }
+}
+
 class GReCaptcha {
   Future get ready {
     var completer = Completer();
@@ -48,6 +65,14 @@ class GReCaptcha {
         sitekey: params.siteKey, callback: jsCallback);
     js.grecaptcha.render(id, jsParams);
   }
+
+  Future<String> execute(String siteKey, GReCaptchaExecuteParams params) async {
+    var jsParams = js.GReCaptchaExecuteParams(action: params.action);
+
+    String token =
+        await promiseToFuture(js.grecaptcha.execute(siteKey, jsParams));
+    return token;
+  }
 }
 
 final grecaptcha = GReCaptcha();
@@ -61,8 +86,16 @@ Future grecaptchaLoadJs() async {
 const String _defaultWidgetId = 'recaptcha_widget';
 const String _defaultContainerId = 'recaptcha_container';
 
+/// Insert a captcha V2 item and wait for
 /// return a token once validated
 Future<String> grecaptchaWait(
+        {String siteKey,
+        String containerId = _defaultContainerId,
+        String widgetId = _defaultWidgetId}) =>
+    grecaptchaV2Wait(
+        siteKey: siteKey, containerId: containerId, widgetId: widgetId);
+
+Future<String> grecaptchaV2Wait(
     {String siteKey,
     String containerId = _defaultContainerId,
     String widgetId = _defaultWidgetId}) async {
@@ -79,4 +112,11 @@ Future<String> grecaptchaWait(
             completer.complete(token);
           }));
   return completer.future;
+}
+
+/// return a token once validated
+Future<String> grecaptchaV3Wait({String siteKey, String action}) async {
+  // await loadJs();
+  await grecaptcha.ready;
+  return grecaptcha.execute(siteKey, GReCaptchaExecuteParams(action: action));
 }

@@ -15,10 +15,21 @@ class GReCaptchaRenderParams {
 
 @JS()
 @anonymous
+class GReCaptchaExecuteParams {
+  external String get action;
+
+  external factory GReCaptchaExecuteParams({String action});
+}
+
+@JS()
+@anonymous
 class GReCaptcha {
   external void render(String id, GReCaptchaRenderParams params);
 
   external void ready(Function readyFunction);
+
+  external dynamic /* Promise */ execute(
+      String action, GReCaptchaExecuteParams params);
 }
 
 @JS('grecaptcha')
