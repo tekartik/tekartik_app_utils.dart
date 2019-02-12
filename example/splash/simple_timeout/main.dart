@@ -8,5 +8,5 @@ Future main() async {
   splash.init(msTimeout: 1000);
   await sleep(10000);
 
-  splash.hide();
+  await splash.hide();
 }

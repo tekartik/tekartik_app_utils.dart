@@ -53,7 +53,7 @@ class Splash {
     if (msTimeout != null) {
       () async {
         await sleep(msTimeout);
-        hide();
+        await hide();
       }();
     }
   }

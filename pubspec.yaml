@@ -1,5 +1,5 @@
 name: 'tekartik_app_utils'
-version: 0.4.3
+version: 0.4.4
 description: App utilities
 #author: Alexandre Roux Tekartik <email@example.com>
 #homepage: https://www.example.com
@@ -17,12 +17,12 @@ dependencies:
     git:
       url: git://github.com/tekartik/browser_utils.dart
       ref: dart2
-    version: '>=0.2.1'
+    version: '>=0.6.8'
   tekartik_build_utils:
     git:
       url: git://github.com/tekartik/build_utils.dart
       ref: dart2
-    version: '>=0.4.1'
+    version: '>=0.6.5'
   quiver: any
 
 dev_dependencies:

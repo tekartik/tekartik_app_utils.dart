@@ -10,5 +10,5 @@ Future main() async {
 
   splash.init();
   //devPrint("main");
-  splash.hide();
+  await splash.hide();
 }
