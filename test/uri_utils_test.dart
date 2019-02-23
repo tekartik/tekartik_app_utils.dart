@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 // Use urlAddParam instead
 String urlAddParam(String url, String param, dynamic value) {
-  if (url.indexOf('?') == -1) {
+  if (!url.contains('?')) {
     return "$url?$param=$value";
   } else {
     return "$url&$param=$value";

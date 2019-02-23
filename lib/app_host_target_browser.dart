@@ -1,14 +1,22 @@
-import 'app_host_target.dart';
-export 'app_host_target.dart';
 import 'dart:html';
+
+import 'app_host_target.dart';
+
+export 'app_host_target.dart';
 
 class BrowserLocationInfo implements LocationInfo {
   Location location;
+  @override
   Map<String, String> arguments;
+
   BrowserLocationInfo(this.location) {
     arguments = locationSearchGetArguments(location.search);
   }
+
+  @override
   String get host => location.host;
+
+  @override
   String get path => location.pathname;
 
   @override

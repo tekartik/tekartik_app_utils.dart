@@ -3,6 +3,7 @@ import 'package:tekartik_browser_utils/browser_utils_import.dart';
 Splash splash = Splash();
 
 class _NullTreeSanitizer implements NodeTreeSanitizer {
+  @override
   void sanitizeTree(node) {}
 }
 
@@ -25,7 +26,7 @@ class Splash {
 
   Element _splashElement;
 
-  _removeSplashElement([_]) {
+  void _removeSplashElement([_]) {
     if (_splashElement != null) {
       _splashElement.remove();
       _splashElement = null;
@@ -39,7 +40,7 @@ class Splash {
     init();
   }
 
-  init({int msTimeout, int minDisplayDuration}) {
+  void init({int msTimeout, int minDisplayDuration}) {
     this._minDisplayDuration = minDisplayDuration;
     // simple call for initialization
     if (_splashElement == null) {
@@ -52,12 +53,12 @@ class Splash {
     if (msTimeout != null) {
       () async {
         await sleep(msTimeout);
-        hide();
+        await hide();
       }();
     }
   }
 
-  hide() async {
+  Future hide() async {
     if (_splashElement != null) {
       int elapsed = sw.elapsedMilliseconds;
       int delayMin = _minDisplayDuration ?? 0;

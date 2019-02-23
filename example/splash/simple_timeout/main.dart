@@ -4,9 +4,9 @@
 import 'package:tekartik_app_utils/splash/splash.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
 
-main() async {
+Future main() async {
   splash.init(msTimeout: 1000);
   await sleep(10000);
 
-  splash.hide();
+  await splash.hide();
 }
