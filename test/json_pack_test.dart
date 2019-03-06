@@ -2,6 +2,8 @@
 
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'dart:convert';
+
 import 'package:dev_test/test.dart';
 import 'package:tekartik_app_utils/json/json_pack.dart';
 
@@ -89,6 +91,7 @@ void main() {
     test('uncompack', () {
       expect(uncompackAny(null), isNull);
       expect(uncompackAny([]), []);
+      expect(uncompackAny([]), const TypeMatcher<List>());
       expect(
           uncompackAny([
             {"field1": "text1", "field2": 123456}
@@ -157,6 +160,22 @@ void main() {
           });
     });
 
+    test('json compack', () {
+      void _check(dynamic any) {
+        var compack = compackAny(any);
+        compack = json.decode(json.encode(compack));
+        expect(uncompackAny(compack), any);
+      }
+
+      _check([]);
+      _check({});
+      _check({
+        'test': [
+          {"field1": "text1", "field2": 123456},
+          {"field3": "text3", "field2": 789}
+        ]
+      });
+    });
     test('unpack', () {
       expect(unpackList(null), isNull);
       expect(unpackList({}), isNull);

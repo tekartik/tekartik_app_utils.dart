@@ -132,7 +132,7 @@ dynamic uncompackAny(dynamic packed) {
     return map.map((k, v) => MapEntry(k, uncompackAny(v)));
   } else if (packed is List) {
     var list = packed;
-    return list.map((item) => uncompackAny(item));
+    return list.map((item) => uncompackAny(item)).toList(growable: false);
   }
   return packed;
 }
