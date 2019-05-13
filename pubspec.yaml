@@ -5,7 +5,7 @@ description: App utilities
 #homepage: https://www.example.com
 
 environment:
-  sdk: '>=2.0.0-dev.63 <3.0.0'
+  sdk: '>=2.3.0-dev <3.0.0'
 
 dependencies:
   tekartik_platform_browser:
@@ -26,6 +26,7 @@ dependencies:
   quiver: any
 
 dev_dependencies:
+  process_run: '>=0.10.0+1'
   test: any
   dev_test: any
   chrome_travis:
