@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5
+
+- compack
+
 ## 0.4.2
 
 - Add `recaptcha`
