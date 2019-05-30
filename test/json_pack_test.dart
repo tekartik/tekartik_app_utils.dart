@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:dev_test/test.dart';
+// ignore: deprecated_member_use_from_same_package
 import 'package:tekartik_app_utils/json/json_pack.dart';
 
 void main() {
