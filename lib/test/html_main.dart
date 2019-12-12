@@ -16,19 +16,19 @@ class App {
 
   void main() {
     holder = DivElement();
-    UListElement ul = UListElement();
+    final ul = UListElement();
     //document.body.append(holder);
     document.body.querySelectorAll('a').forEach((Element element) {
-      AnchorElement anchorElement = element as AnchorElement;
-      String href = anchorElement.href;
-      String title = anchorElement.text;
+      final anchorElement = element as AnchorElement;
+      final href = anchorElement.href;
+      var title = anchorElement.text;
       if (isEmpty(title)) {
         title = href;
       }
 
-      LIElement li = LIElement();
+      final li = LIElement();
 
-      AnchorElement newAnchor = AnchorElement()
+      final newAnchor = AnchorElement()
         ..href = href
         ..text = title;
       li.append(newAnchor);

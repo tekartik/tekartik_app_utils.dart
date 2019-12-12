@@ -6,7 +6,7 @@ class MyApp extends App {
   @override
   Future build() async {
     await super.build();
-    print("### custom build step");
+    print('### custom build step');
   }
 }
 
@@ -18,7 +18,7 @@ Future main(List<String> args) async {
 
 @Task('Test')
 void example_browser() {
-  //app.path = join("example", "browser");
+  //app.path = join('example', 'browser');
 }
 
 @Task()

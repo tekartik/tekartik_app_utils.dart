@@ -5,7 +5,7 @@ import 'package:tekartik_browser_utils/js_utils.dart';
 import 'package:tekartik_app_utils/recaptcha/src/recaptcha_interop.dart' as js;
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
-typedef void GReCaptchaValidateFunction(String token);
+typedef GReCaptchaValidateFunction = void Function(String token);
 
 class GReCaptchaRenderParams {
   final String siteKey;
@@ -69,8 +69,9 @@ class GReCaptcha {
   Future<String> execute(String siteKey, GReCaptchaExecuteParams params) async {
     var jsParams = js.GReCaptchaExecuteParams(action: params.action);
 
-    String token =
-        await promiseToFuture(js.grecaptcha.execute(siteKey, jsParams));
+    final token =
+        await promiseToFuture(js.grecaptcha.execute(siteKey, jsParams))
+            as String;
     return token;
   }
 }

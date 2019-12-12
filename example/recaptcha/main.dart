@@ -7,7 +7,7 @@ import 'package:tekartik_browser_utils/browser_utils_import.dart';
 Future main() async {
   // querySelector('#output').text = 'Your Dart app is running.';
 
-  PreOutput output = PreOutput(id: 'output');
+  final output = PreOutput(id: 'output');
   output.writeln('waiting for non-robot');
   await grecaptchaLoadJs();
   var token =

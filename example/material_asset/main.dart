@@ -7,7 +7,7 @@ PreElement output;
 
 void message(String msg) {
   output ??= querySelector('#output') as PreElement;
-  output.text += "msg\n";
+  output.text += 'msg\n';
 }
 
 Future main() async {
@@ -22,5 +22,5 @@ Future main() async {
       await loadRobotoCondensedFontCss();
     }(),
   ]);
-  message("hi");
+  message('hi');
 }

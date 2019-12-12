@@ -4,7 +4,7 @@ String escapeString(String text) {
   if (text == null) {
     return null;
   }
-  bool needEnclose = false;
+  var needEnclose = false;
   if (text.contains('"')) {
     text = text.replaceAll('"', '""');
     needEnclose = true;

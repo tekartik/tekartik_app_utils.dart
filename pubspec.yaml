@@ -1,11 +1,11 @@
 name: 'tekartik_app_utils'
-version: 0.4.5+1
+version: 0.5.0
 description: App utilities
 #author: Alexandre Roux Tekartik <email@example.com>
 #homepage: https://www.example.com
 
 environment:
-  sdk: '>=2.3.0-dev <3.0.0'
+  sdk: '>=2.6.0 <3.0.0'
 
 dependencies:
   tekartik_platform_browser:
@@ -18,6 +18,11 @@ dependencies:
       url: git://github.com/tekartik/browser_utils.dart
       ref: dart2
     version: '>=0.6.8'
+  tekartik_common_utils:
+    git:
+      url: git://github.com/tekartik/common_utils.dart
+      ref: dart2
+    version: '>=0.10.6'
   tekartik_build_utils:
     git:
       url: git://github.com/tekartik/build_utils.dart

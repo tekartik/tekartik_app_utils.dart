@@ -5,25 +5,25 @@ import 'package:test/test.dart';
 // Use urlAddParam instead
 String urlAddParam(String url, String param, dynamic value) {
   if (!url.contains('?')) {
-    return "$url?$param=$value";
+    return '$url?$param=$value';
   } else {
-    return "$url&$param=$value";
+    return '$url&$param=$value';
   }
 }
 
 String uriPath(String path) {
-  Uri uri = Uri.parse(path);
+  final uri = Uri.parse(path);
   return uri.path;
 }
 
 String urlPath(String path) {
-  Uri uri = Uri.parse(path);
+  final uri = Uri.parse(path);
   return uri.path;
 }
 
 // remove / prefix
 String urlNonAbsolutePath(String path) {
-  if (path.startsWith("/")) {
+  if (path.startsWith('/')) {
     return path.substring(1);
   }
   return path;
@@ -31,7 +31,7 @@ String urlNonAbsolutePath(String path) {
 
 String urlChangeQueryParameters(
     String url, Map<String, String> newQueryParams) {
-  Uri uri = Uri.parse(url);
+  final uri = Uri.parse(url);
   return uriChangeQueryParameters(uri, newQueryParams).toString();
 }
 
@@ -82,7 +82,7 @@ String urlHashFix(String hash) {
 
 /// find the part hash or a url (without the #)
 String urlHash(String url) {
-  int sharp = url.indexOf('#');
+  final sharp = url.indexOf('#');
   if (sharp != -1) {
     return url.substring(sharp + 1);
   }

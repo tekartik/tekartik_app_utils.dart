@@ -5,7 +5,7 @@ class PreOutput {
     if (preElement != null) {
       _pre = preElement;
     } else {
-      if (id.startsWith("#")) {
+      if (id.startsWith('#')) {
         id = id.substring(1);
       }
       _pre ??= querySelector('#${id}') as PreElement;
@@ -14,14 +14,14 @@ class PreOutput {
   PreElement _pre;
 
   void write(Object msg) {
-    _pre.text += "${msg}";
+    _pre.text += '${msg}';
   }
 
   void writeln(Object msg) {
-    _pre.text += "${msg}\n";
+    _pre.text += '${msg}\n';
   }
 
   void clear() {
-    _pre.text = "";
+    _pre.text = '';
   }
 }
