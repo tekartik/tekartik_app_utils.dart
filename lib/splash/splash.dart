@@ -10,7 +10,7 @@ class _NullTreeSanitizer implements NodeTreeSanitizer {
 NodeTreeSanitizer nullTreeSanitizer = _NullTreeSanitizer();
 
 Element spinnerElement() {
-  Element element = Element.html('''
+  final element = Element.html('''
   <div class="tka-spinner-svg-wrapper" width="65px" height="65px">
 <svg class="tka-spinner-svg" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
   <circle class="tka-spinner-svg-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
@@ -21,8 +21,8 @@ Element spinnerElement() {
 }
 
 class Splash {
-  int _minDisplayDuration = 100;
-  int _minTransitionDuration = 350;
+  var _minDisplayDuration = 100;
+  final _minTransitionDuration = 350;
 
   Element _splashElement;
 
@@ -41,7 +41,7 @@ class Splash {
   }
 
   void init({int msTimeout, int minDisplayDuration}) {
-    this._minDisplayDuration = minDisplayDuration;
+    _minDisplayDuration = minDisplayDuration;
     // simple call for initialization
     if (_splashElement == null) {
       _splashElement = document.getElementById('tka_splash');
@@ -60,8 +60,8 @@ class Splash {
 
   Future hide() async {
     if (_splashElement != null) {
-      int elapsed = sw.elapsedMilliseconds;
-      int delayMin = _minDisplayDuration ?? 0;
+      final elapsed = sw.elapsedMilliseconds;
+      final delayMin = _minDisplayDuration ?? 0;
       if (elapsed < delayMin) {
         await sleep(delayMin - elapsed);
       }

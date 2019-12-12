@@ -21,7 +21,7 @@ class BrowserLocationInfo implements LocationInfo {
 
   @override
   String toString() {
-    Map map = {"host": host, "path": path};
+    final map = <String, dynamic>{'host': host, 'path': path};
     if (arguments.isNotEmpty) {
       map['arguments'] = arguments;
     }

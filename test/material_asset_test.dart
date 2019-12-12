@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 import 'package:test/test.dart';
 import 'package:tekartik_app_utils/material_asset/loader.dart';
 
