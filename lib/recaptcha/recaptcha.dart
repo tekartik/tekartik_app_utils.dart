@@ -104,7 +104,7 @@ Future<String> grecaptchaV2Wait(
   await grecaptcha.ready;
   var completer = Completer<String>();
   var element = grecaptcha.createElement(widgetId);
-  querySelector('#${containerId}').children.add(element);
+  querySelector('#$containerId').children.add(element);
   grecaptcha.render(
       widgetId,
       GReCaptchaRenderParams(
