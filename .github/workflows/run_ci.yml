@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: ${{ matrix.sdk }}
+          sdk: ${{ matrix.dart }}
       # - uses: cedx/setup-dart@v2
       #  with:
       #    release-channel: ${{ matrix.dart }}
