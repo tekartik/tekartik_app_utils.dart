@@ -1,9 +1,9 @@
 import 'dart:html';
 
-PreElement output;
+PreElement? output;
 void message(String msg) {
-  output ??= querySelector('#output') as PreElement;
-  output.text += 'msg\n';
+  output ??= querySelector('#output') as PreElement?;
+  output!.text = '${output!.text}$msg\n';
 }
 
 void main() {

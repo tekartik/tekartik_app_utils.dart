@@ -1,12 +1,12 @@
 import 'dart:html';
 
 class SideBarLayout {
-  Element _element;
+  late Element _element;
 
-  SideBarLayout([Element element]) {
+  SideBarLayout([Element? element]) {
     element ??= querySelector('#wrapper');
 
-    _element = element;
+    _element = element!;
   }
   void showMenu() {
     //$('#menu-toggle').click(function(e) {

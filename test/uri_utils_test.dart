@@ -74,14 +74,14 @@ Uri uriRoot(Uri uri) {
 }
 
 String urlHashFix(String hash) {
-  if (hash != null && hash.startsWith('#')) {
+  if (hash.startsWith('#')) {
     hash = hash.substring(1);
   }
   return hash;
 }
 
 /// find the part hash or a url (without the #)
-String urlHash(String url) {
+String? urlHash(String url) {
   final sharp = url.indexOf('#');
   if (sharp != -1) {
     return url.substring(sharp + 1);

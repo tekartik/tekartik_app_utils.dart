@@ -10,6 +10,7 @@ class _NullTreeSanitizer implements NodeTreeSanitizer {
 NodeTreeSanitizer nullTreeSanitizer = _NullTreeSanitizer();
 
 Element spinnerElement() {
+  // ignore: unsafe_html
   final element = Element.html('''
   <div class="tka-spinner-svg-wrapper" width="65px" height="65px">
 <svg class="tka-spinner-svg" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -21,33 +22,33 @@ Element spinnerElement() {
 }
 
 class Splash {
-  var _minDisplayDuration = 100;
+  int? _minDisplayDuration = 100;
   final _minTransitionDuration = 350;
 
-  Element _splashElement;
+  Element? _splashElement;
 
   void _removeSplashElement([_]) {
     if (_splashElement != null) {
-      _splashElement.remove();
+      _splashElement!.remove();
       _splashElement = null;
     }
   }
 
-  Stopwatch sw;
+  late Stopwatch sw;
 
   Splash() {
     sw = Stopwatch()..start();
     init();
   }
 
-  void init({int msTimeout, int minDisplayDuration}) {
+  void init({int? msTimeout, int? minDisplayDuration}) {
     _minDisplayDuration = minDisplayDuration;
     // simple call for initialization
     if (_splashElement == null) {
       _splashElement = document.getElementById('tka_splash');
       if (_splashElement != null) {
-        _splashElement.children.add(spinnerElement());
-        _splashElement.on['transitionend'].listen(_removeSplashElement);
+        _splashElement!.children.add(spinnerElement());
+        _splashElement!.on['transitionend'].listen(_removeSplashElement);
       }
     }
     if (msTimeout != null) {
@@ -65,7 +66,7 @@ class Splash {
       if (elapsed < delayMin) {
         await sleep(delayMin - elapsed);
       }
-      document.body.classes.remove('tka-loading');
+      document.body!.classes.remove('tka-loading');
       await sleep(_minTransitionDuration); // transition delay
       _removeSplashElement();
     }
