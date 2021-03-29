@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Test on ${{ matrix.os }} / ${{ matrix.sdk }}
+    name: Test on ${{ matrix.os }} / ${{ matrix.dart }}
     runs-on: ${{ matrix.os }}
     defaults:
       run:
