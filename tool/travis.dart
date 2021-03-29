@@ -1,15 +1,7 @@
+import 'package:dev_test/package.dart';
 import 'package:process_run/shell.dart';
 
 Future main() async {
-  var shell = Shell();
-
-  await shell.run('''
-# Analyze code
-dartanalyzer --fatal-warnings --fatal-infos .
-dartfmt -n --set-exit-if-changed .
-
-pub run test -p vm,firefox,chrome
-
-pub run build_runner test -- -p vm,chrome
-''');
+  await packageRunCi('.', noAnalyze: true);
+  await Shell().run('dart analyze --fatal-warnings .'); // no --fatal-infos
 }
