@@ -3,11 +3,11 @@ import 'dart:html';
 
 import 'package:tekartik_app_utils/material_asset/loader.dart';
 
-PreElement output;
+PreElement? output;
 
 void message(String msg) {
   output ??= querySelector('#output') as PreElement;
-  output.text += 'msg\n';
+  output!.text = '${output!.text}$msg\n';
 }
 
 Future main() async {

@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:quiver/strings.dart';
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
-App app;
+late App app;
 
 void main() {
   app = App();
@@ -12,13 +12,13 @@ void main() {
 }
 
 class App {
-  Element holder;
+  late Element holder;
 
   void main() {
     holder = DivElement();
     final ul = UListElement();
     //document.body.append(holder);
-    document.body.querySelectorAll('a').forEach((Element element) {
+    document.body!.querySelectorAll('a').forEach((Element element) {
       final anchorElement = element as AnchorElement;
       final href = anchorElement.href;
       var title = anchorElement.text;
@@ -29,6 +29,7 @@ class App {
       final li = LIElement();
 
       final newAnchor = AnchorElement()
+        // ignore: unsafe_html
         ..href = href
         ..text = title;
       li.append(newAnchor);
@@ -38,8 +39,8 @@ class App {
       anchorElement.remove();
     });
     holder.append(ul);
-    document.body.append(holder);
+    document.body!.append(holder);
 
-    setHidden(document.body, false);
+    setHidden(document.body!, false);
   }
 }

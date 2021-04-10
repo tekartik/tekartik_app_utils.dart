@@ -1,17 +1,16 @@
 // bool isRecaptchaOn
 import 'package:js/js.dart';
-import 'package:meta/meta.dart';
-import 'package:tekartik_browser_utils/js_utils.dart';
 import 'package:tekartik_app_utils/recaptcha/src/recaptcha_interop.dart' as js;
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_browser_utils/js_utils.dart';
 
-typedef GReCaptchaValidateFunction = void Function(String token);
+typedef GReCaptchaValidateFunction = void Function(String? token);
 
 class GReCaptchaRenderParams {
-  final String siteKey;
-  final GReCaptchaValidateFunction callback;
+  final String? siteKey;
+  final GReCaptchaValidateFunction? callback;
 
-  GReCaptchaRenderParams({@required this.siteKey, this.callback});
+  GReCaptchaRenderParams({required this.siteKey, this.callback});
 
   @override
   String toString() {
@@ -26,7 +25,7 @@ class GReCaptchaRenderParams {
 }
 
 class GReCaptchaExecuteParams {
-  final String action;
+  final String? action;
 
   GReCaptchaExecuteParams({this.action});
 
@@ -52,13 +51,14 @@ class GReCaptcha {
   }
 
   Element createElement(String id) {
+    // ignore: unsafe_html
     return Element.html('<div id="$id" class="g-recaptcha"></div>');
   }
 
   void render(String id, GReCaptchaRenderParams params) {
     var jsCallback = (params.callback != null)
         ? (allowInterop(([token, param1, param2]) {
-            params.callback(token?.toString());
+            params.callback!(token?.toString());
           }))
         : null;
     var jsParams = js.GReCaptchaRenderParams(
@@ -66,7 +66,8 @@ class GReCaptcha {
     js.grecaptcha.render(id, jsParams);
   }
 
-  Future<String> execute(String siteKey, GReCaptchaExecuteParams params) async {
+  Future<String> execute(
+      String? siteKey, GReCaptchaExecuteParams params) async {
     var jsParams = js.GReCaptchaExecuteParams(action: params.action);
 
     final token =
@@ -80,6 +81,7 @@ final grecaptcha = GReCaptcha();
 
 JavascriptScriptLoader _loader =
     JavascriptScriptLoader('https://www.google.com/recaptcha/api.js');
+
 Future grecaptchaLoadJs() async {
   await _loader.load();
 }
@@ -90,21 +92,21 @@ const String _defaultContainerId = 'recaptcha_container';
 /// Insert a captcha V2 item and wait for
 /// return a token once validated
 Future<String> grecaptchaWait(
-        {String siteKey,
+        {String? siteKey,
         String containerId = _defaultContainerId,
         String widgetId = _defaultWidgetId}) =>
     grecaptchaV2Wait(
         siteKey: siteKey, containerId: containerId, widgetId: widgetId);
 
 Future<String> grecaptchaV2Wait(
-    {String siteKey,
+    {String? siteKey,
     String containerId = _defaultContainerId,
     String widgetId = _defaultWidgetId}) async {
   // await loadJs();
   await grecaptcha.ready;
   var completer = Completer<String>();
   var element = grecaptcha.createElement(widgetId);
-  querySelector('#${containerId}').children.add(element);
+  querySelector('#$containerId')!.children.add(element);
   grecaptcha.render(
       widgetId,
       GReCaptchaRenderParams(
@@ -116,7 +118,7 @@ Future<String> grecaptchaV2Wait(
 }
 
 /// return a token once validated
-Future<String> grecaptchaV3Wait({String siteKey, String action}) async {
+Future<String> grecaptchaV3Wait({String? siteKey, String? action}) async {
   // await loadJs();
   await grecaptcha.ready;
   return grecaptcha.execute(siteKey, GReCaptchaExecuteParams(action: action));

@@ -10,17 +10,17 @@ Future main() async {
   await loadBootstrap();
   await loadSideBarCss();
   final sideBarLayout = SideBarLayout();
-  querySelector('#menu-toggle').onClick.listen((e) {
+  querySelector('#menu-toggle')!.onClick.listen((e) {
     e.preventDefault();
     //querySelector('#wrapper').classes.toggle('toggled');
     sideBarLayout.toggle();
   });
-  querySelector('#menu-show').onClick.listen((e) {
+  querySelector('#menu-show')!.onClick.listen((e) {
     e.preventDefault();
     //querySelector('#wrapper').classes.add('show');
     sideBarLayout.showMenu();
   });
-  querySelector('#menu-reset').onClick.listen((e) {
+  querySelector('#menu-reset')!.onClick.listen((e) {
     e.preventDefault();
     sideBarLayout.reset();
     //querySelector('#wrapper').classes.add('show');

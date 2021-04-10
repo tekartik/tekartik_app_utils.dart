@@ -5,11 +5,11 @@ import 'dart:html';
 import 'package:tekartik_app_utils/app_host_target_browser.dart';
 
 void main() {
-  querySelector('#output').text = '''
-${locationInfo}
+  querySelector('#output')!.text = '''
+$locationInfo
 ${AppHostTarget.fromLocationInfo(locationInfo)}
 ''';
-  querySelector('#links').querySelectorAll('a').forEach((Element element) {
-    (element as AnchorElement).text = (element as AnchorElement).href;
+  querySelector('#links')!.querySelectorAll('a').forEach((Element element) {
+    (element as AnchorElement).text = element.href;
   });
 }
