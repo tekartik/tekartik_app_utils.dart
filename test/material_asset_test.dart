@@ -1,6 +1,6 @@
 @TestOn('browser')
-import 'package:test/test.dart';
 import 'package:tekartik_app_utils/material_asset/loader.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('material_asset', () {

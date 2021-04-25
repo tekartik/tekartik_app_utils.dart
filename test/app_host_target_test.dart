@@ -1,9 +1,9 @@
 // Copyright (c) 2016, Alexandre Roux Tekartik. All rights reserved. Use of this source code
 
+import 'package:dev_test/test.dart';
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:tekartik_app_utils/app_host_target.dart';
-import 'package:dev_test/test.dart';
 import 'package:tekartik_app_utils/app_host_target_mock.dart';
 
 void main() {
